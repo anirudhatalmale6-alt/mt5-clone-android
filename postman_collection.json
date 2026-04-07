@@ -1,0 +1,208 @@
+{
+    "info": {
+        "name": "MT5 Clone API",
+        "description": "API collection for MT5 Clone trading backend",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8000"
+        },
+        {
+            "key": "token",
+            "value": ""
+        }
+    ],
+    "item": [
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "url": "{{base_url}}/api/health"
+            }
+        },
+        {
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "Register",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{base_url}}/api/auth/register",
+                        "header": [{"key": "Content-Type", "value": "application/json"}],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\": \"Test User\", \"email\": \"test@example.com\", \"password\": \"password123\"}"
+                        }
+                    }
+                },
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{base_url}}/api/auth/login",
+                        "header": [{"key": "Content-Type", "value": "application/json"}],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\": \"test@example.com\", \"password\": \"password123\"}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Symbols",
+            "item": [
+                {
+                    "name": "Get All Symbols",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/api/symbols"
+                    }
+                },
+                {
+                    "name": "Get Symbol",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/api/symbols/EURUSD"
+                    }
+                },
+                {
+                    "name": "Get Candles",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/api/symbols/EURUSD/candles?timeframe=H1&count=100"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Account",
+            "item": [
+                {
+                    "name": "Get Account",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/api/account",
+                        "header": [{"key": "Authorization", "value": "Bearer {{token}}"}]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Orders",
+            "item": [
+                {
+                    "name": "Place Buy Order",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{base_url}}/api/orders",
+                        "header": [
+                            {"key": "Content-Type", "value": "application/json"},
+                            {"key": "Authorization", "value": "Bearer {{token}}"}
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"symbol\": \"EURUSD\", \"type\": \"BUY\", \"lots\": 0.1, \"stopLoss\": 1.08000, \"takeProfit\": 1.09000}"
+                        }
+                    }
+                },
+                {
+                    "name": "Place Sell Order",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{base_url}}/api/orders",
+                        "header": [
+                            {"key": "Content-Type", "value": "application/json"},
+                            {"key": "Authorization", "value": "Bearer {{token}}"}
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"symbol\": \"EURUSD\", \"type\": \"SELL\", \"lots\": 0.1, \"stopLoss\": 1.09000, \"takeProfit\": 1.08000}"
+                        }
+                    }
+                },
+                {
+                    "name": "Get Open Orders",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/api/orders/open",
+                        "header": [{"key": "Authorization", "value": "Bearer {{token}}"}]
+                    }
+                },
+                {
+                    "name": "Close Order",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{base_url}}/api/orders/ORDER_ID/close",
+                        "header": [{"key": "Authorization", "value": "Bearer {{token}}"}]
+                    }
+                },
+                {
+                    "name": "Modify Order",
+                    "request": {
+                        "method": "PUT",
+                        "url": "{{base_url}}/api/orders/ORDER_ID",
+                        "header": [
+                            {"key": "Content-Type", "value": "application/json"},
+                            {"key": "Authorization", "value": "Bearer {{token}}"}
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"stopLoss\": 1.07500, \"takeProfit\": 1.09500}"
+                        }
+                    }
+                },
+                {
+                    "name": "Get Order History",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/api/orders/history",
+                        "header": [{"key": "Authorization", "value": "Bearer {{token}}"}]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Admin",
+            "item": [
+                {
+                    "name": "Get All Users",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/api/admin/users"
+                    }
+                },
+                {
+                    "name": "System Stats",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/api/admin/stats"
+                    }
+                },
+                {
+                    "name": "Set Symbol Spread",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{base_url}}/api/admin/symbols/EURUSD/spread?spread=15"
+                    }
+                },
+                {
+                    "name": "Adjust Balance",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{base_url}}/api/admin/accounts/demo/balance?amount=5000"
+                    }
+                },
+                {
+                    "name": "Set Leverage",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{base_url}}/api/admin/accounts/demo/leverage?leverage=200"
+                    }
+                }
+            ]
+        }
+    ]
+}
