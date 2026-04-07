@@ -32,6 +32,9 @@ class SymbolConfig:
     contract_size: float
     base_price: float
     volatility: float  # per-tick volatility
+    min_lot: float = 0.01
+    max_lot: float = 100.0
+    lot_step: float = 0.01
 
 
 @dataclass
