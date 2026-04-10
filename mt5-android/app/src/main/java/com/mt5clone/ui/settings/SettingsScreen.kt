@@ -56,16 +56,16 @@ fun SettingsScreen() {
                 SettingsSectionHeader("Charts", colors)
             }
             item {
-                SettingsItem(Icons.Default.Palette, "Color Scheme", "Dark", colors)
+                SettingsItem(Icons.Default.Edit, "Color Scheme", "Dark", colors)
             }
             item {
-                SettingsItem(Icons.Default.GridOn, "Grid", "Enabled", colors)
+                SettingsItem(Icons.Default.Apps, "Grid", "Enabled", colors)
             }
             item {
-                SettingsItem(Icons.Default.Timeline, "Chart Type", "Candles", colors)
+                SettingsItem(Icons.Default.Star, "Chart Type", "Candles", colors)
             }
             item {
-                SettingsItem(Icons.Default.ZoomIn, "Scale", "Auto", colors)
+                SettingsItem(Icons.Default.Search, "Scale", "Auto", colors)
             }
 
             // Trading section
@@ -73,13 +73,13 @@ fun SettingsScreen() {
                 SettingsSectionHeader("Trading", colors)
             }
             item {
-                SettingsItem(Icons.Default.Speed, "Trade Execution", "Instant", colors)
+                SettingsItem(Icons.Default.PlayArrow, "Trade Execution", "Instant", colors)
             }
             item {
                 SettingsItem(Icons.Default.Notifications, "Notifications", "Enabled", colors)
             }
             item {
-                SettingsItem(Icons.Default.Vibration, "Vibration", "On trade", colors)
+                SettingsItem(Icons.Default.Phone, "Vibration", "On trade", colors)
             }
 
             // General section
@@ -87,7 +87,7 @@ fun SettingsScreen() {
                 SettingsSectionHeader("General", colors)
             }
             item {
-                SettingsItem(Icons.Default.Language, "Language", "English", colors)
+                SettingsItem(Icons.Default.Place, "Language", "English", colors)
             }
             item {
                 SettingsItem(Icons.Default.Info, "About", "MT5 Clone v1.0.0", colors)
@@ -191,7 +191,7 @@ private fun SettingsItem(
         )
         Spacer(modifier = Modifier.width(4.dp))
         Icon(
-            imageVector = Icons.Default.ChevronRight,
+            imageVector = Icons.Default.KeyboardArrowRight,
             contentDescription = null,
             tint = colors.textTertiary,
             modifier = Modifier.size(16.dp)

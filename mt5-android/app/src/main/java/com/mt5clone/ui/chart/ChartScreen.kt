@@ -241,13 +241,13 @@ private fun ChartToolsBar(
         ChartToolButton(Icons.Default.Add, "Crosshair", currentTool == ChartTool.CROSSHAIR, colors) {
             onToolSelected(if (currentTool == ChartTool.CROSSHAIR) ChartTool.NONE else ChartTool.CROSSHAIR)
         }
-        ChartToolButton(Icons.Default.HorizontalRule, "H-Line", currentTool == ChartTool.HORIZONTAL_LINE, colors) {
+        ChartToolButton(Icons.Default.Remove, "H-Line", currentTool == ChartTool.HORIZONTAL_LINE, colors) {
             onToolSelected(ChartTool.HORIZONTAL_LINE)
         }
-        ChartToolButton(Icons.Default.TrendingUp, "Trend", currentTool == ChartTool.TREND_LINE, colors) {
+        ChartToolButton(Icons.Default.ArrowUpward, "Trend", currentTool == ChartTool.TREND_LINE, colors) {
             onToolSelected(ChartTool.TREND_LINE)
         }
-        ChartToolButton(Icons.Default.BarChart, "Indicators", false, colors) { }
+        ChartToolButton(Icons.Default.Menu, "Indicators", false, colors) { }
         ChartToolButton(Icons.Default.Settings, "Objects", false, colors) { }
     }
 }
