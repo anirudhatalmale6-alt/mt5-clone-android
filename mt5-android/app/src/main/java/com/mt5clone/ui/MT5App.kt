@@ -31,7 +31,7 @@ sealed class MT5Screen(
     val icon: ImageVector
 ) {
     data object Quotes : MT5Screen("quotes", "Quotes", Icons.Default.FormatListBulleted)
-    data object Chart : MT5Screen("chart", "Chart", Icons.Default.CandlestickChart)
+    data object Chart : MT5Screen("chart", "Chart", Icons.Default.ShowChart)
     data object Trade : MT5Screen("trade", "Trade", Icons.Default.SwapVert)
     data object History : MT5Screen("history", "History", Icons.Default.History)
     data object Messages : MT5Screen("messages", "Messages", Icons.Default.Email)
